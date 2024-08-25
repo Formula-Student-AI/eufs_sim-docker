@@ -1,6 +1,6 @@
 # README
 
-This folder provides .devcontainer files for VSCode to build a ROS 2 workspace and simulation.
+This folder provides .devcontainer files for VSCode to build a Ubuntu 20.04 docker container with ROS 2 Galactic and EUFS sim installed.
 
 ## Versions
 - OS: Ubuntu 20.04 (Focal)
@@ -12,7 +12,7 @@ This folder provides .devcontainer files for VSCode to build a ROS 2 workspace a
 
 1. Clone this Repo
    ```
-   git clone https://github.com/Formula-Student-AI/getting-started
+   git clone https://github.com/Formula-Student-AI/eufs_sim-docker
    ```
 
 2. Reopen in Container
@@ -20,17 +20,22 @@ This folder provides .devcontainer files for VSCode to build a ROS 2 workspace a
    - Click on the blue box in the bottom left-hand corner of the VSCode window.
    - Select "Reopen in Container".
 
-3. Build the Workspace
+3. Install ROS Dependencies for EUFS Sim
+   ```
+   sudo rosdep install --from-paths /$(pwd) --ignore-src -r -y
+   ```
+
+4. Build and Install the ROS Packages
    ```
    colcon build --symlink-install
    ```
 
-4. Source the Setup Script
+4. Source the Overlay Setup Script
    ```
    source install/setup.bash
    ```
 
-5. Launch ROS 2
+5. Launch EUFS Sim
    ```
    ros2 launch eufs_launcher eufs_launcher.launch.py
    ```

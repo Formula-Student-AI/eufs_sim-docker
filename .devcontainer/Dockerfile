@@ -17,32 +17,19 @@ USER $USERNAME
 # Add user to video group to allow access to webcam
 RUN sudo usermod --append --groups video $USERNAME
 
-# Update all packages
-RUN sudo apt update && sudo apt upgrade -y
-
 # Install Git
 RUN sudo apt install -y git
 
 # Rosdep update
 RUN rosdep update
 
+# Update all packages
+RUN sudo apt update && sudo apt upgrade -y
+
 # EUFS setup
-RUN sudo mkdir -p /getting-started \
-    && cd /getting-started
-RUN sudo rosdep install --from-paths /getting-started --ignore-src -r -y
-RUN sudo echo 'export EUFS_MASTER=/getting-started' >> ~/.bashrc
-
-# Install dependencies for colcon to work
-RUN sudo apt install -y libyaml-cpp-dev
-RUN sudo apt install -y libgazebo11-dev
-RUN sudo apt install -y ros-galactic-gazebo-ros-pkgs ros-galactic-joint-state-publisher ros-galactic-gazebo-plugins
-RUN sudo apt install ros-galactic-ackermann-msgs
-
-# Recommended (see known issues on EUFS getting started guide)
-RUN sudo apt install -y python3-tk
-
-# Dependencies to get gazebo running
-RUN sudo apt install ros-galactic-xacro
+#RUN pip3 install colcon-common-extensions -U
+#RUN sudo rosdep install --from-paths /${WORKSPACE_DIR} --ignore-src -r -y
+RUN sudo echo 'export EUFS_MASTER=/${WORKSPACE_DIR}' >> ~/.bashrc
 
 # Source the ROS setup file
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
