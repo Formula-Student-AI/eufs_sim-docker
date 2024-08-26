@@ -26,10 +26,12 @@ RUN rosdep update
 # Update all packages
 RUN sudo apt update && sudo apt upgrade -y
 
-# EUFS setup
-#RUN pip3 install colcon-common-extensions -U
-#RUN sudo rosdep install --from-paths /${WORKSPACE_DIR} --ignore-src -r -y
-RUN sudo echo 'export EUFS_MASTER=/${WORKSPACE_DIR}' >> ~/.bashrc
+## Trying to figure out how to install rosdep dependencies during build
+# SHELL ["/bin/bash", "-c"]
+# ARG WORKSPACE_DIR=/eufs-sim
+# RUN ls -la $(pwd)
+# RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
+#     && sudo rosdep install --from-paths /eufs-sim --ignore-src -r -y
 
 # Source the ROS setup file
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc

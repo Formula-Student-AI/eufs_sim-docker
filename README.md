@@ -22,7 +22,7 @@ This folder provides .devcontainer files for VSCode to build a Ubuntu 20.04 dock
 
 3. Install ROS Dependencies for EUFS Sim
    ```
-   sudo rosdep install --from-paths $(pwd) --ignore-src -r -y
+   sudo rosdep install --from-paths $EUFS_MASTER --ignore-src -r -y
    ```
 
 4. Build and Install the ROS Packages

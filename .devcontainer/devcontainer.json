@@ -10,6 +10,10 @@
   "mounts": [
     "source=${localEnv:HOME}${localEnv:USERPROFILE}/.bash_history,target=/home/vscode/.bash_history,type=bind"
   ],
+  // EUFS setup
+  "containerEnv": {
+    "EUFS_MASTER": "/${localWorkspaceFolderBasename}"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
