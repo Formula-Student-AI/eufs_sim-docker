@@ -40,6 +40,8 @@ This folder provides .devcontainer files for VSCode to build a Ubuntu 20.04 dock
    ros2 launch eufs_launcher eufs_launcher.launch.py
    ```
 
+If you have any problems check [Known Issues with EUFS sim](https://gitlab.com/eufs/eufs_sim/-/wikis/Getting-Started-Guide#4-known-issues-) first. Contact Dan ([ut20461@bristol.ac.uk](mailto:ut20461@bristol.ac.uk)) if you think you've found any bugs.
+
 ## Credit
 - ijnek: https://github.com/ijnek/ros-devcontainer-template
 - EUFS: https://gitlab.com/eufs
