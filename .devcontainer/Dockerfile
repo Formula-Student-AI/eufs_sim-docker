@@ -33,5 +33,8 @@ RUN sudo apt update && sudo apt upgrade -y
 # RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
 #     && sudo rosdep install --from-paths /eufs-sim --ignore-src -r -y
 
+# Additional dependency to fix zed camera not showing up in rviz
+RUN sudo apt install -y python3-tk
+
 # Source the ROS setup file
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
