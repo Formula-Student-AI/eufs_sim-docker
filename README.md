@@ -8,6 +8,8 @@ This folder provides .devcontainer files for VSCode to build a Ubuntu 20.04 dock
 
 ## Instructions
 
+> **Warning:** If you're on a MacBook with an M-chip (most newer MacBook models) or any computer with an ARM CPU, you will need to switch to the 'dynamic-os-selection-eufs' branch and follow the README in there.
+
 0. Download VScode and Docker Desktop
 
 1. Clone this Repo
