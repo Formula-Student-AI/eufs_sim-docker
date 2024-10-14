@@ -6,11 +6,11 @@ This folder provides .devcontainer files for VSCode to build a Ubuntu 20.04 dock
 - OS: Ubuntu 20.04 (Focal)
 - ROS: ROS 2 Galactic
 
-## Instructions
+## Setup
 
-> **Warning:** eufs_sim-docker currently doesn't run on MacBooks with an M-chip (most newer MacBook models) or any computer with an ARM-based CPU. We are looking to fix this ASAP. For now checkout our ros-docker repo to run and learn ROS.
+> **Warning:** eufs_sim-docker currently doesn't run on Apple Silicon (most newer MacBook models) or any computer with an ARM-based CPU. See our [setup guide](https://bristol-fsai.notion.site/Guides-11c29866e62680b3a193ee29496b3f37) to see how to set EUFS sim up in a VM.
 
-0. Download VScode and Docker Desktop. You may need to install the Dev Container VScode extension. For Windows users: Install WSL (Windows Subsystem for Linux) using `wsl --install` in PowerShell. When you open VSCode you need to click on the blue arrows in the bottom left of the window and then click 'connect to WSL' to open VSCode in Linux ([read more about WSL online](https://www.sitepoint.com/wsl2/) if you're having any trouble with this). WSL integration may have to be enabled in Docker Desktop. In Docker Desktop, go to: Settings -> Resources -> WSL Integration.
+0. Follow the [setup guide](https://bristol-fsai.notion.site/Guides-11c29866e62680b3a193ee29496b3f37) if you need to set up Docker.
 
 1. Navigate to your home folder and clone this repo
    ```
@@ -22,7 +22,7 @@ This folder provides .devcontainer files for VSCode to build a Ubuntu 20.04 dock
    - Click on the blue box in the bottom left-hand corner of the VSCode window.
    - Select "Reopen in Container".
 
-3. Install ROS Dependencies for EUFS Sim (you may need to run this command every time you rebuild or reopen the container to ensure that all necessary dependencies are installed. For some reason, rosdep doesn't like being used in the Dockerfile - we're working on this.)
+3. Install ROS Dependencies for EUFS Sim (**this is now optional** - dependencies should be installed in Dockerfile)
    ```
    sudo rosdep install --from-paths $EUFS_MASTER --ignore-src -r -y
    ```
